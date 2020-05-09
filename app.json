@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/live-room-play/play",
+    "pages/live-room-push/push"
+  ],
+  "plugins": {
+    "liveRoomPlugin": {
+      "version": "1.2.1",
+      "provider": "wx95a7d2b78cf30f98"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

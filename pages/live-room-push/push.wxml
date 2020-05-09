@@ -1,0 +1,57 @@
+<view class="container-box">
+  <view class="pusher-view">
+    <live-room-push version="{{version}}" liveAppID="{{liveAppID}}" pushUrl="{{pushUrl}}" orientation="{{orientation}}" muted="{{muted}}" mode="{{mode}}" waitingImage="{{waitingImage}}" enableCamera="{{enableCamera}}" beauty="{{beauty}}" whiteness="{{whiteness}}" backgroundMute="{{backgroundMute}}"
+      debug="{{debug}}" autoFocus="{{autoFocus}}" aspect="{{aspect}}" minBitrate="{{minBitrate}}" maxBitrate="{{maxBitrate}}" zoom="{{zoom}}" devicePosition="{{devicePosition}}" sdkAppID="{{sdkAppID}}" accountType="{{accountType}}" userID="{{userID}}" userSig="{{userSig}}"
+      roomID="{{roomID}}" nickName="{{nickName}}" avatar="{{avatar}}" bindPushEvent="onPushEvent" bindIMEvent="onIMEvent">
+      <cover-image hidden="{{playing}}" style="width:100%; height: 100%; position:absolute;" src="https://mc.qcloudimg.com/static/img/7da57e0050d308e2e1b1e31afbc42929/bg.png"></cover-image>
+
+      <cover-view style="width:65px; height: 115px; position:absolute;bottom:150px;margin-left:calc(50% - 32px)" hidden='{{!showHDTips}}'>
+        <cover-image src="../Resources/hd_tips.png"></cover-image>
+        <cover-view style="width:100%; font-size:10px; color: #ffffff;position:absolute;bottom:20px;margin-left:calc(50% - 32px);text-align: center;" data-mode="SD" bindtap='onModeClick'>标清</cover-view>
+        <cover-view style="width:100%; font-size:10px; color: #ffffff;position:absolute;bottom:55px;margin-left:calc(50% - 32px);text-align: center;" data-mode="HD" bindtap='onModeClick'>高清</cover-view>
+        <cover-view style="width:100%; font-size:10px; color: #ffffff;position:absolute;bottom:90px;margin-left:calc(50% - 32px);text-align: center;" data-mode="FHD" bindtap='onModeClick'>超清</cover-view>
+      </cover-view>
+      <cover-view wx:if="{{!playing || playing}}" style="width:100%; height: 50px; position:absolute;bottom:90px;">
+        <cover-view class='bottom_box'>
+          <cover-image class="bottom_button" src="../Resources/{{playing?'suspend':'start'}}.png" bindtap='onPushClick'></cover-image>
+          <cover-view class='bottom_text'>推流</cover-view>
+        </cover-view>
+        <cover-view class='bottom_box'>
+          <cover-image class="bottom_button" src="../Resources/camera.png" bindtap='onSwitchCameraClick'></cover-image>
+          <cover-view class='bottom_text'>翻转</cover-view>
+        </cover-view>
+        <cover-view class='bottom_box'>
+          <cover-image class="bottom_button" src="../Resources/{{beauty == 0 ? 'beauty-dis':'beauty'}}.png" bindtap='onBeautyClick'></cover-image>
+          <cover-view class='bottom_text'>美颜</cover-view>
+        </cover-view>
+        <cover-view class='bottom_box'>
+          <cover-image class="bottom_button" src="../Resources/{{mode == 'HD'? 'HD':mode == 'FHD'?'super':'SD'}}.png" bindtap='onSwitchMode'></cover-image>
+          <cover-view class='bottom_text'>{{mode == 'HD'? '高清':mode == 'FHD'?'超清':'标清'}}</cover-view>
+        </cover-view>
+        <cover-view class='bottom_box'>
+          <cover-image class="bottom_button" src="../Resources/{{muted?'mic-dis':'mic'}}.png" bindtap='onMuteClick'></cover-image>
+          <cover-view class='bottom_text'>声音</cover-view>
+        </cover-view>
+        <cover-view class='bottom_box'>
+          <cover-image class="bottom_button" src="../Resources/{{enableCamera?'off':'camera-dis'}}.png" bindtap='onEnableCameraClick'></cover-image>
+          <cover-view class='bottom_text'>摄像头</cover-view>
+        </cover-view>
+        <cover-view class='bottom_box'>
+          <cover-image class="bottom_button" src="../Resources/{{orientation == 'vertical'?'portrait':'landscape'}}.png" bindtap='onOrientationClick'></cover-image>
+          <cover-view class='bottom_text'>{{orientation == 'vertical'?'竖屏':'横屏'}}</cover-view>
+        </cover-view>
+      </cover-view>
+      <cover-view wx:if="{{!playing || playing}}" style="width:100%; height: 50px; position:absolute;bottom:30px;">
+        <cover-view class='bottom_box'>
+          <cover-image class="bottom_button" src="../Resources/{{debug?'log':'log2'}}.png" bindtap='onLogClick'></cover-image>
+          <cover-view class='bottom_text'>日志</cover-view>
+        </cover-view>
+        <cover-view class='bottom_box'>
+          <cover-image class="bottom_button" src="../Resources/camera.png" bindtap='onSnapshotClick'></cover-image>
+          <cover-view class='bottom_text'>截图</cover-view>
+        </cover-view>
+      </cover-view>
+    </live-room-push>
+  </view>
+
+</view>

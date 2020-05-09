@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "live-room-play": "plugin://liveRoomPlugin/live-room-play"
+  }
+}

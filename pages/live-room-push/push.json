@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "live-room-push": "plugin://liveRoomPlugin/live-room-push"
+  }
+}
